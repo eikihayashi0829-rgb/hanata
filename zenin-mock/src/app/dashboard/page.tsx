@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Sidebar from "@/components/Sidebar";
+import LiveLinePanel from "@/components/LiveLinePanel";
 import { aiActivities, dashboardStats, pendingRepairs, AiActivity } from "@/lib/mockData";
 
 const activityIcon: Record<AiActivity["type"], LucideIcon> = {
@@ -108,6 +109,9 @@ export default function DashboardPage() {
         </header>
 
         <main className="px-8 py-8">
+          {/* Live LINE intake */}
+          <LiveLinePanel />
+
           {/* AI Banner */}
           <div className="mb-7 flex items-center justify-between rounded-2xl border border-brand-200 bg-gradient-to-r from-brand-50 via-white to-white p-5 shadow-soft">
             <div className="flex items-center gap-4">
