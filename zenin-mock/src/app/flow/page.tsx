@@ -88,10 +88,11 @@ export default function FlowPage() {
         {/* Flow */}
         <div className="mt-14 overflow-x-auto pb-4">
           <div className="flex min-w-max items-end gap-3 px-2">
-            {/* Step 1: 写真受信 (LINE風) */}
+            {/* Step 1: 写真受信 (LINE風) — clickable */}
+            <Link href="/line" className="group">
             <StepCard
               no={1}
-              title="写真受信"
+              title="写真受信 (LINEで体験 →)"
               desc="入居者からLINEで一次受付。AIが内容を即時パース。"
             >
               <div className="w-[180px] rounded-2xl border border-slate-200 bg-white p-3 shadow">
@@ -114,6 +115,7 @@ export default function FlowPage() {
                 </div>
               </div>
             </StepCard>
+            </Link>
 
             <Arrow />
 
@@ -288,13 +290,19 @@ export default function FlowPage() {
           </div>
         </div>
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <Link
+            href="/split"
+            className="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-6 py-3 text-sm font-bold text-white shadow-lift hover:bg-brand-600"
+          >
+            ライブ二画面デモを見る
+            <ArrowRight size={16} />
+          </Link>
           <Link
             href="/dashboard"
-            className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
           >
-            実際のダッシュボードを見る
-            <ArrowRight size={16} />
+            管理ダッシュボードを見る
           </Link>
         </div>
       </div>

@@ -7,6 +7,8 @@ import {
   CheckCircle2,
   Sparkles,
   PlayCircle,
+  MessageCircle,
+  Smartphone,
 } from "lucide-react";
 import Logo from "@/components/Logo";
 
@@ -42,8 +44,8 @@ export default function LandingPage() {
         />
         <div className="mx-auto max-w-6xl px-6 pt-20 pb-16 text-center">
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">
-            <Sparkles size={14} />
-            実行型AIエージェント for 不動産管理会社
+            <MessageCircle size={14} />
+            LINE 公式アカウントから即導入できる、実行型AIエージェント
           </div>
 
           <h1 className="mt-6 text-5xl font-extrabold tracking-tight text-slate-900 md:text-6xl">
@@ -55,24 +57,31 @@ export default function LandingPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-            不動産管理会社の<span className="font-semibold text-slate-800">「入居者・修繕業者・オーナー」</span>三者間の電話調整を肩代わりする、
-            実行型AIエージェント。担当者は最終承認ボタンを押すだけ。
+            入居者からの修繕連絡を <span className="font-semibold text-slate-800">LINE 1本</span> で受付。
+            業者選定・見積比較・書類作成までを AI が自動実行し、担当者は <span className="font-semibold text-brand-600">承認ボタンを押すだけ</span>。
           </p>
 
-          <div className="mt-10 flex items-center justify-center gap-3">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <Link
-              href="/dashboard"
+              href="/split"
               className="group inline-flex items-center gap-2 rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-semibold text-white shadow-lift transition hover:bg-brand-600"
             >
               <PlayCircle size={18} />
-              デモを見る
+              ライブデモを見る
               <ArrowRight size={16} className="transition group-hover:translate-x-0.5" />
             </Link>
             <Link
-              href="/flow"
+              href="/line"
               className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50"
             >
-              業務フローを見る
+              <Smartphone size={16} />
+              入居者の画面を見る
+            </Link>
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >
+              管理画面を見る
             </Link>
           </div>
 
@@ -135,6 +144,94 @@ export default function LandingPage() {
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{v.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LINE feature */}
+      <section className="py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-widest text-brand-600">
+                LINE Integration
+              </div>
+              <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-900">
+                導入は LINE 公式アカウントを<br />
+                「友だち追加」してもらうだけ。
+              </h2>
+              <p className="mt-4 leading-relaxed text-slate-600">
+                日本で 97% の世帯が使う LINE をそのまま窓口に。
+                入居者はアプリのインストールや会員登録が一切不要。
+                高齢者でも迷わず使えるUIで、写真や動画でのトラブル説明もスムーズ。
+              </p>
+              <ul className="mt-6 space-y-2 text-sm">
+                {[
+                  "アプリインストール不要 (LINEは普及率97%)",
+                  "夜間・週末・祝日も24時間自動応答",
+                  "写真1枚送るだけで AI が故障内容を自動判定",
+                  "業者調整・書類作成まで全自動 (担当者は承認のみ)",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-2 text-slate-700">
+                    <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0 text-brand-500" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/line"
+                className="mt-7 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-bold text-white hover:bg-slate-800"
+              >
+                <Smartphone size={16} />
+                入居者の画面を体験する
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+
+            {/* Mini phone preview */}
+            <div className="flex justify-center">
+              <div className="relative h-[480px] w-[260px] overflow-hidden rounded-[2.5rem] border-[10px] border-slate-900 bg-black shadow-2xl">
+                <div className="absolute left-1/2 top-0 z-30 h-5 w-28 -translate-x-1/2 rounded-b-[1rem] bg-slate-900" />
+                <div className="flex h-full w-full flex-col bg-[#7d96b6]">
+                  <div className="flex items-center gap-2 bg-emerald-500 px-3 pt-4 pb-2 text-white">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-emerald-600">
+                      <Sparkles size={14} />
+                    </div>
+                    <div className="text-xs font-bold">全任サポート</div>
+                  </div>
+                  <div className="flex-1 space-y-2 px-2 py-3 text-[11px]">
+                    <div className="flex items-end gap-1">
+                      <div className="rounded-2xl rounded-bl-sm bg-white px-2.5 py-1.5 text-slate-800 shadow-sm">
+                        お写真をいただけますか？
+                      </div>
+                    </div>
+                    <div className="flex justify-end">
+                      <div className="overflow-hidden rounded-xl shadow-sm">
+                        <div className="flex h-16 w-24 items-center justify-center bg-gradient-to-br from-slate-200 to-slate-400 text-slate-500">
+                          📷
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-end gap-1">
+                      <div className="w-44 overflow-hidden rounded-2xl rounded-bl-sm bg-white shadow-sm">
+                        <div className="bg-emerald-50 px-2 py-1 text-[9px] font-bold text-emerald-700">
+                          AI判定結果
+                        </div>
+                        <div className="space-y-0.5 px-2 py-1.5 text-[10px]">
+                          <div className="flex justify-between"><span>設備</span><span className="font-bold">エアコン</span></div>
+                          <div className="flex justify-between"><span>緊急度</span><span className="font-bold">中</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-end gap-1">
+                      <div className="rounded-2xl rounded-bl-sm bg-white px-2.5 py-1.5 text-slate-800 shadow-sm">
+                        業者B社が明日10時に伺います ✅
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

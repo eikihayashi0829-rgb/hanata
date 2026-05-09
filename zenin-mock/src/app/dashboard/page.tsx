@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   Bell,
   Search,
+  Smartphone,
   Sparkles,
   CheckCircle2,
   Clock3,
@@ -88,6 +89,13 @@ export default function DashboardPage() {
             <p className="text-xs text-slate-500">2024年5月20日 (月) - AIが今日も裏側で稼働中</p>
           </div>
           <div className="flex items-center gap-3">
+            <Link
+              href="/line"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-semibold text-emerald-700 hover:bg-emerald-100"
+            >
+              <Smartphone size={14} />
+              入居者LINE画面
+            </Link>
             <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-500">
               <Search size={14} />
               <span>検索...</span>
